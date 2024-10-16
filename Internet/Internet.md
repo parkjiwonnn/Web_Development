@@ -1,6 +1,6 @@
 # Internet
 
-인터넷은 네트워크의 네트워크  
+Internet: 전 세계의 컴퓨터 네트워크를 연결하는 거대한 네트워크, 웹을 포함한 모든 온라인 서비스의 기반이 되는 네트워크  
 1960년대 후반 미국 국방부에 의해 핵 공격을 견딜 수 있는 탈중앙화 통신 네트워크를 만들기 위한 수단으로 개발됨  
 수년에 걸쳐 인터넷은 전 세계에 걸쳐 복잡하고 정교한 네트워크로 발전해 왔음
 
@@ -120,4 +120,4 @@ SSL/TLS는 인터넷을 통해 전송되는 데이터를 암호화하는 데 사
 
 https://cs.fyi/guide/how-does-internet-work#introduction-to-the-internet
 
-https://developer.mozilla.org/ko/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work
+https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work
