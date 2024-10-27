@@ -20,7 +20,84 @@ client-side form validation: 서버에 데이터를 제출하기 전에 모든 �
 
 ## Built-in form validation
 
+```html
+<form
+  name="myForm"
+  action="/action_page.php"
+  onsubmit="return validateForm()"
+  method="post">
+  Name: <input type="text" name="fname" />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+- `required`: 폼 필드가 제출되기 전에 반드시 채워져야 하는지 여부를 지정
+- `minlength`, `maxlength`: 텍스트 데이터(문자열)의 최소 및 최대 길이를 지정
+- `min`, `max`: 숫자 입력 유형의 최소 및 최대 값을 지정
+- `type`: 데이터가 숫자, 이메일 주소 또는 다른 특정 유형이어야 하는지를 지정
+- `pattern`: 입력된 데이터가 따라야 하는 패턴을 정의하는 정규 표현식을 지정
+
+폼 필드에 입력된 데이터가 위 속성에서 지정한 모든 규칙을 따르면 유효한 것으로 간주, 그렇지 않으면 무효로 간주
+
+유효한 요소일 경우:
+
+- 요소는 :valid CSS 의사 클래스에 일치하여 유효한 요소에 특정 스타일을 적용할 수 있음
+- 사용자가 데이터를 전송하려고 하면, 다른 방해 요소(JavaScript 등)가 없다면 브라우저가 폼을 제출
+
+무효한 요소일 경우:
+
+- 요소는 :invalid CSS 의사 클래스 및 때에 따라 오류에 따른 다른 UI 의사 클래스(:out-of-range 등)에 일치하여 무효한 요소에 특정 스타일을 적용할 수 있음
+- 사용자가 데이터를 전송하려고 하면 브라우저가 폼 제출을 차단하고 오류 메시지를 표시
+
 ## JavaScript validation
+
+```javascript
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+```
+
+폼이 제출될 때 validateForm() 함수가 호출되어 입력 필드가 비어 있는지 확인하고, 비어 있을 경우 경고 메시지를 띄운 뒤 폼 제출을 막음
+
+### Constraint Validation API
+
+```html
+<form>
+  <label for="mail">
+    I would like you to provide me with an email address:
+  </label>
+  <input type="email" id="mail" name="mail" />
+  <button>Submit</button>
+</form>
+```
+
+```javascript
+const email = document.getElementById("mail");
+
+email.addEventListener("input", (event) => {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an email address!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+```
+
+1. 유효성 검사
+   `validity.typeMismatch` 속성을 사용하여 입력된 이메일 주소가 유효한 형식을 따르는지 확인  
+   만약 `typeMismatch`가 true를 반환하면, 입력된 값이 이메일 주소의 올바른 형식이 아님
+
+2. 사용자 정의 오류 메세지 설정
+   `typeMismatch`가 true일 경우, `setCustomValidity()` 메서드를 사용하여 사용자 정의 오류 메시지를 설정  
+   이로 인해 입력 필드가 유효하지 않게 되며, 폼 제출을 시도할 때 제출이 실패하고, 설정한 오류 메시지가 표시됨
+
+3. 빈 문자열로 오류 메세지 초기화
+   반대로, `typeMismatch`가 false일 경우 `setCustomValidity()`에 빈 문자열을 전달  
+   이렇게 하면 필드가 유효하다고 간주되어, 폼을 제출할 수 있음
 
 ## 참고
 
