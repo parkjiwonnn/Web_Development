@@ -187,8 +187,6 @@ const asyncFunc = async () => {
 asyncFunc();
 ```
 
-[자바스크립트의 비동기 프로그래밍](https://www.howdy-mj.me/javascript/asynchronous-programming)
-
 ## JSON
 
 - Javascript object notation
