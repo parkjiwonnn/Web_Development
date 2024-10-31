@@ -17,8 +17,6 @@
 - DOM이나 다른 스크립트에 의존성이 없고, 실행 순서가 중요하지 않은 경우에 사용
 - DOM 렌더 과정을 방해하지 않도록 병렬로 로드함
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5758e720-50f1-4ed8-a3e6-5617aa5e2838/5b8a5d62-adb2-48d4-bb2d-e2ba32454856/Untitled.png)
-
 ```jsx
 <script src="analytics.js" async></script>
 ```
@@ -35,8 +33,6 @@
 - defer 스크립트도 DOM 렌더를 방해하지 않고 병렬로 로드함
 - 로드가 완료된 후 즉시 그 내용이 실행되는 async 스크립트와 다르게, defer 스크립트는 모든 DOM이 로드된 후에야 실행됨
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5758e720-50f1-4ed8-a3e6-5617aa5e2838/1c347ece-8532-4415-a639-4aeb1cfdfdc1/Untitled.png)
-
 ```jsx
 <script src="jquery.js" defer></script>
 ```
@@ -47,8 +43,6 @@
 ## 이벤트 버블링
 
 - 이벤트가 발생하면 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작하고, 최상단의 부모 요소를 만날 때까지 반복되면서 핸들러가 동작하는 현상
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5758e720-50f1-4ed8-a3e6-5617aa5e2838/82a36efc-7170-48a4-9c64-ea26b95e95c2/Untitled.png)
 
 - 거의 모든 이벤트는 버블링 됨
 - focus 이벤트와 같이 버블링 되지 않은 이벤트도 존재
@@ -64,8 +58,6 @@ const clickEvent = (e) => {
 ## 이벤트 캡처링
 
 - 최상위 태그에서 이벤트가 발생한 태그까지 찾아 내려감
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5758e720-50f1-4ed8-a3e6-5617aa5e2838/50bf8fa2-52c6-4eea-8616-d13acf0c0e18/Untitled.png)
 
 - 캡처링을 이용하는 경우는 흔하지 않음
 - 캡처링 단계에서 이벤트를 잡아내려면 addEventListener의 capture 옵션을 true로 설정해야 함
