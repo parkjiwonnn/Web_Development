@@ -29,7 +29,7 @@ Flex 요소들을 세로선 상에서 정렬
 - column: 요소들을 위에서 아래로 정렬
 - column-reverse: 요소들을 아래에서 위로 정렬
 
-1.  column-reverse 또는 row-reverse를 사용하면 요소들의 start와 end의 순서도 뒤바뀜
+#### 1. column-reverse 또는 row-reverse를 사용하면 요소들의 start와 end의 순서도 뒤바뀜
 
 ```css
 /* (ex) . . . G Y R */
@@ -40,7 +40,7 @@ Flex 요소들을 세로선 상에서 정렬
 }
 ```
 
-2. Flex의 방향이 column일 경우 justify-content의 방향이 세로로, align-items의 뱡향이 가로로 바뀜
+#### 2. Flex의 방향이 column일 경우 justify-content의 방향이 세로로, align-items의 뱡향이 가로로 바뀜
 
 ```css
 /* (ex) G Y R . . */
